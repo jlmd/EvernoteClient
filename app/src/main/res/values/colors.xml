@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Login view -->
+  <color name="login_button_background">#363636</color>
+  <color name="login_hint_color">#363636</color>
+
+
+  <!-- Styling -->
+  <color name="colorPrimary">#89c541</color>
+  <color name="colorPrimaryDark">#6fa233</color>
+
+</resources>
