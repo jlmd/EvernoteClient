@@ -1,5 +1,6 @@
 package com.jlmd.android.evernoteclient.app.di;
 
+import com.jlmd.android.evernoteclient.domain.interactor.login.Login;
 import com.jlmd.android.evernoteclient.presentation.login.LoginPresenter;
 import dagger.Module;
 import dagger.Provides;
@@ -15,7 +16,7 @@ public final class PresenterModule {
 
   @Provides
   @Singleton
-  LoginPresenter provideLoginPresenter() {
-    return new LoginPresenter();
+  LoginPresenter provideLoginPresenter(Login login) {
+    return new LoginPresenter(login);
   }
 }
