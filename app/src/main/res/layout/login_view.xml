@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,42 +9,22 @@
       android:id="@+id/iv_icon"
       android:layout_width="180dp"
       android:layout_height="180dp"
-      android:layout_centerHorizontal="true"
+      android:layout_gravity="center_horizontal"
       android:layout_marginTop="55dp"
-      android:layout_marginBottom="50dp"
+      android:layout_marginBottom="150dp"
       android:src="@drawable/evernote256px"
       />
 
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/iv_icon"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/username_hint"
-        style="@style/LoginEditText"
-        />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/et_username"
-        android:layout_centerHorizontal="true"
-        android:inputType="textPassword"
-        android:hint="@string/password_hint"
-        style="@style/LoginEditText"
-        />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:background="@color/login_button_background"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
         android:text="@string/login_button"
         android:textSize="20sp"
         android:textColor="@android:color/white"
         />
 
-</RelativeLayout>
+</LinearLayout>

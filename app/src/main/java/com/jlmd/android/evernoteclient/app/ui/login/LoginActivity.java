@@ -1,6 +1,9 @@
 package com.jlmd.android.evernoteclient.app.ui.login;
 
 import android.os.Bundle;
+import android.widget.Toast;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.jlmd.android.evernoteclient.R;
 import com.jlmd.android.evernoteclient.app.base.BaseActivity;
 import com.jlmd.android.evernoteclient.app.ui.View;
@@ -16,6 +19,7 @@ public class LoginActivity extends BaseActivity implements View {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.login_view);
+    ButterKnife.bind(this);
   }
 
   @Override
@@ -23,15 +27,13 @@ public class LoginActivity extends BaseActivity implements View {
     return loginPresenter;
   }
 
-  public void showLoading() {
-
+  public void showError() {
+    Toast.makeText(getApplicationContext(), getResources().getString(R.string.login_error),
+        Toast.LENGTH_SHORT).show();
   }
 
-  public void hideLoading() {
-
-  }
-
-  public void showError(String errorMessage) {
-
+  @OnClick(R.id.btn_login)
+  public void onLoginButtonPressed() {
+    loginPresenter.onLoginButtonPressed();
   }
 }
