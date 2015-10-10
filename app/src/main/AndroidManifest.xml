@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <!--<activity android:name=".app.ui.login.LoginActivity"/>-->
+        <activity android:name=".app.ui.noteslist.NotesListActivity"/>
 
         <activity android:name="com.evernote.client.android.EvernoteOAuthActivity" />
         <activity android:name="com.evernote.client.android.login.EvernoteLoginActivity"/>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import com.evernote.client.android.EvernoteSession;
 import com.jlmd.android.evernoteclient.app.ui.login.LoginActivity;
+import com.jlmd.android.evernoteclient.app.ui.noteslist.NotesListActivity;
 
 /**
  * @author jlmd
@@ -38,6 +39,14 @@ public class Navigator {
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
     activity.startActivity(intent);
   }
+
+  public void goToNotesList() {
+    finishCurrentActivity();
+    Intent intent = new Intent(activity, NotesListActivity.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    activity.startActivity(intent);
+  }
+
 
   public void openLoginWebsite() {
     evernoteSession.authenticate(activity);

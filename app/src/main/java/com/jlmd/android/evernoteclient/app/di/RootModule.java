@@ -6,6 +6,7 @@ import com.jlmd.android.evernoteclient.app.base.ApplicationClass;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.login.LoginActivity;
 import com.jlmd.android.evernoteclient.app.ui.main.MainActivity;
+import com.jlmd.android.evernoteclient.app.ui.noteslist.NotesListActivity;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -17,10 +18,10 @@ import javax.inject.Singleton;
 @Module(
     includes = {
         PresenterModule.class, InteractorModule.class, ExecutorModule.class, RepositoryModule.class,
-        EvernoteSDKModule.class
+        EvernoteSDKModule.class, DataSourceModule.class
     },
     injects = {
-        ApplicationClass.class, LoginActivity.class, MainActivity.class
+        ApplicationClass.class, LoginActivity.class, MainActivity.class, NotesListActivity.class
     },
     library = true)
 public final class RootModule {
