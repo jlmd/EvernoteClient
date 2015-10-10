@@ -5,11 +5,10 @@ package com.jlmd.android.evernoteclient.domain.utils;
  */
 public final class Constants {
 
-  public static final String CONSUMER_KEY = "jlmartind";
-  public static final String CONSUMER_SECRET = "7222fd3698ed371a";
+  public static final String CONSUMER_KEY = "jlmartind-0385";
+  public static final String CONSUMER_SECRET = "e3d81d3fceee3025";
 
   private Constants() {
     // Instances not allowed
   }
-
 }

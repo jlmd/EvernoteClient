@@ -1,8 +1,8 @@
 package com.jlmd.android.evernoteclient.app.di;
 
-import android.content.Context;
-import com.jlmd.android.evernoteclient.domain.repository.CredentialsRepository;
-import com.jlmd.android.evernoteclient.domain.repository.CredentialsSharedPreferences;
+import com.jlmd.android.evernoteclient.data.datasource.NotesListDataSource;
+import com.jlmd.android.evernoteclient.data.repository.NotesListRepository;
+import com.jlmd.android.evernoteclient.data.repository.NotesListRepositoryImp;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -17,7 +17,7 @@ public final class RepositoryModule {
 
   @Provides
   @Singleton
-  CredentialsRepository provideCredentialsRepository(Context appContext) {
-    return new CredentialsSharedPreferences(appContext);
+  NotesListRepository provideNotesListRepository(NotesListDataSource notesListDataSource) {
+    return new NotesListRepositoryImp(notesListDataSource);
   }
 }
