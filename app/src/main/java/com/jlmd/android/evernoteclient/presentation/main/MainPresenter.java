@@ -28,6 +28,8 @@ public class MainPresenter extends Presenter<MainActivity> {
   private void checkUserLogged() {
     if (isUserLogged()) {
       Log.i("MainPresenter", "User logged already!");
+      Log.i("MainPresenter",
+          "Access token: " + credentialsRepository.getCredentials().getAccessToken());
     } else {
       navigator.goToLogin();
     }
