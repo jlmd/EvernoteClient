@@ -1,8 +1,7 @@
 package com.jlmd.android.evernoteclient.presentation.login;
 
-import android.util.Log;
+import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.login.LoginActivity;
-import com.jlmd.android.evernoteclient.domain.interactor.login.Login;
 import com.jlmd.android.evernoteclient.presentation.Presenter;
 
 /**
@@ -10,28 +9,21 @@ import com.jlmd.android.evernoteclient.presentation.Presenter;
  */
 public class LoginPresenter extends Presenter<LoginActivity> {
 
-  private static final String TAG = LoginPresenter.class.getSimpleName();
-  private final Login login;
+  private final Navigator navigator;
 
-  public LoginPresenter(Login login) {
-    this.login = login;
+  public LoginPresenter(Navigator navigator) {
+    this.navigator = navigator;
   }
 
   public void onLoginButtonPressed() {
-    login.doLogin(new LoginCallback());
+    navigator.openLoginWebsite();
   }
 
-  private class LoginCallback implements Login.Callback {
+  public void onLoggedOk() {
+    // TODO Store credentials in shared preferences or something...
+  }
 
-    @Override
-    public void onLogged() {
-      Log.i(TAG, "Logged successful!");
-    }
-
-    @Override
-    public void onError(Throwable throwable) {
-      Log.e(TAG, "Login error", throwable);
-      view.showError();
-    }
+  public void onLoginFailure() {
+    view.showError();
   }
 }
