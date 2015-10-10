@@ -27,7 +27,7 @@ public class NotesListSDKDataSource implements NotesListDataSource {
     EvernoteNoteStoreClient noteStoreClient =
         evernoteSession.getEvernoteClientFactory().getNoteStoreClient();
     try {
-      return noteStoreClient.findNotes(new NoteFilter(), 0, 10).getNotes();
+      return noteStoreClient.findNotes(new NoteFilter(), 0, 100).getNotes();
     } catch (EDAMUserException e) {
       e.printStackTrace();
     } catch (EDAMSystemException e) {
