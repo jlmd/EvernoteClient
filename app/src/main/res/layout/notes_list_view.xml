@@ -4,11 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.jlmd.android.evernoteclient.app.ui.custom.view.ClickRecyclerView
-        android:id="@+id/rv_notes_list"
-        android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar"
+      />
+
+  <com.jlmd.android.evernoteclient.app.ui.custom.view.ClickRecyclerView
+      android:id="@+id/rv_notes_list"
+      android:scrollbars="vertical"
+      android:layout_marginTop="5dp"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      />
 
 </LinearLayout>

@@ -3,7 +3,9 @@ package com.jlmd.android.evernoteclient.app.ui.login;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.evernote.client.android.EvernoteSession;
@@ -17,12 +19,15 @@ import javax.inject.Inject;
 public class LoginActivity extends BaseActivity implements View {
 
   @Inject protected LoginPresenter loginPresenter;
+  @Bind(R.id.toolbar) protected Toolbar toolbar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.login_view);
     ButterKnife.bind(this);
+    setSupportActionBar(toolbar);
+    getSupportActionBar().setDisplayShowTitleEnabled(true);
   }
 
   @Override

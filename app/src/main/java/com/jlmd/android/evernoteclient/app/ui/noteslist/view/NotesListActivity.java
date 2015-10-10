@@ -2,6 +2,7 @@ package com.jlmd.android.evernoteclient.app.ui.noteslist.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.jlmd.android.evernoteclient.R;
@@ -20,6 +21,7 @@ import javax.inject.Inject;
 public class NotesListActivity extends BaseActivity {
 
   @Inject protected NotesListPresenter notesListPresenter;
+  @Bind(R.id.toolbar) protected Toolbar toolbar;
   @Bind(R.id.rv_notes_list) protected ClickRecyclerView notesRecyclerView;
   private NotesListAdapter notesListAdapter;
 
@@ -29,6 +31,8 @@ public class NotesListActivity extends BaseActivity {
     setContentView(R.layout.notes_list_view);
     ButterKnife.bind(this);
     initRecyclerView();
+    setSupportActionBar(toolbar);
+    getSupportActionBar().setDisplayShowTitleEnabled(true);
   }
 
   private void initRecyclerView() {
