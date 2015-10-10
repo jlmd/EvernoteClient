@@ -1,7 +1,7 @@
 package com.jlmd.android.evernoteclient.presentation.noteslist;
 
 import android.util.Log;
-import com.jlmd.android.evernoteclient.app.ui.noteslist.NotesListActivity;
+import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
 import com.jlmd.android.evernoteclient.domain.model.Note;
 import com.jlmd.android.evernoteclient.presentation.Presenter;
@@ -36,13 +36,14 @@ public class NotesListPresenter extends Presenter<NotesListActivity> {
   private class NotesListCallback implements GetNotesList.Callback {
 
     @Override
-    public void onSuccess(List<Note> notebooks) {
-      Log.e("NotesListPresenter", "Note books size: " + notebooks.size());
-      setNotebookList(notebooks);
+    public void onSuccess(List<Note> notes) {
+      setNotebookList(notes);
+      view.renderNotes(notes);
     }
 
     @Override
     public void onError(Throwable throwable) {
+      // TODO Call the view to show an error
       Log.e("NotesListPresenter", "Error obtaining note list", throwable);
     }
   }

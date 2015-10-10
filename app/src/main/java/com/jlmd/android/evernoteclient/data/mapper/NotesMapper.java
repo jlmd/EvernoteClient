@@ -12,6 +12,7 @@ public class NotesMapper
 
   private Note mapNote(com.evernote.edam.type.Note note) {
     Note mappedNote = new Note();
+    mappedNote.setTitle(note.getTitle());
     mappedNote.setContent(note.getContent());
     mappedNote.setCreated(note.getCreated());
     mappedNote.setNotebookGuid(note.getNotebookGuid());
