@@ -1,6 +1,6 @@
 package com.jlmd.android.evernoteclient.data.repository;
 
-import com.evernote.edam.type.Note;
+import com.jlmd.android.evernoteclient.domain.model.Note;
 import java.util.List;
 
 /**

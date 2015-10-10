@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar"
+      />
+
   <ImageView
       android:id="@+id/iv_icon"
       android:layout_width="180dp"
@@ -14,7 +19,6 @@
       android:layout_marginBottom="150dp"
       android:src="@drawable/evernote256px"
       />
-
 
   <Button
       android:id="@+id/btn_login"

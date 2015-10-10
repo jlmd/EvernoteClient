@@ -1,10 +1,10 @@
 package com.jlmd.android.evernoteclient.domain.interactor.noteslist;
 
-import com.evernote.edam.type.Note;
 import com.jlmd.android.evernoteclient.app.executor.InteractorExecutor;
 import com.jlmd.android.evernoteclient.app.executor.MainThreadExecutor;
 import com.jlmd.android.evernoteclient.data.repository.NotesListRepository;
 import com.jlmd.android.evernoteclient.domain.interactor.AbstractInteractor;
+import com.jlmd.android.evernoteclient.domain.model.Note;
 import java.util.List;
 
 /**

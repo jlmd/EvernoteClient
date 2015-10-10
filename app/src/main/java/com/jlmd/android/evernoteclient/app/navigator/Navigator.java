@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import com.evernote.client.android.EvernoteSession;
 import com.jlmd.android.evernoteclient.app.ui.login.LoginActivity;
-import com.jlmd.android.evernoteclient.app.ui.noteslist.NotesListActivity;
+import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
 
 /**
  * @author jlmd
