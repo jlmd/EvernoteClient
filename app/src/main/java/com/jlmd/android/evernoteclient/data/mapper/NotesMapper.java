@@ -15,7 +15,7 @@ public class NotesMapper
     mappedNote.setTitle(note.getTitle());
     mappedNote.setContent(note.getContent());
     mappedNote.setCreated(note.getCreated());
-    mappedNote.setNotebookGuid(note.getNotebookGuid());
+    mappedNote.setAuthor(note.getAttributes().getAuthor());
     return mappedNote;
   }
 

@@ -5,6 +5,7 @@ import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
 import com.jlmd.android.evernoteclient.presentation.login.LoginPresenter;
 import com.jlmd.android.evernoteclient.presentation.main.MainPresenter;
+import com.jlmd.android.evernoteclient.presentation.notedetails.NoteDetailsPresenter;
 import com.jlmd.android.evernoteclient.presentation.noteslist.NotesListPresenter;
 import dagger.Module;
 import dagger.Provides;
@@ -32,7 +33,13 @@ public final class PresenterModule {
 
   @Provides
   @Singleton
-  NotesListPresenter provideNotesListPresenter(GetNotesList getNotesList) {
-    return new NotesListPresenter(getNotesList);
+  NotesListPresenter provideNotesListPresenter(GetNotesList getNotesList, Navigator navigator) {
+    return new NotesListPresenter(getNotesList, navigator);
+  }
+
+  @Provides
+  @Singleton
+  NoteDetailsPresenter provideNoteDetailsPresenter(Navigator navigator) {
+    return new NoteDetailsPresenter(navigator);
   }
 }

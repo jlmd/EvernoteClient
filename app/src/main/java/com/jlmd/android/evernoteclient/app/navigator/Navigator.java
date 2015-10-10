@@ -2,10 +2,13 @@ package com.jlmd.android.evernoteclient.app.navigator;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.Bundle;
 import com.evernote.client.android.EvernoteSession;
+import com.jlmd.android.evernoteclient.R;
 import com.jlmd.android.evernoteclient.app.ui.login.LoginActivity;
+import com.jlmd.android.evernoteclient.app.ui.notedetails.NoteDetailsActivity;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
+import com.jlmd.android.evernoteclient.domain.model.Note;
 
 /**
  * @author jlmd
@@ -27,12 +30,6 @@ public class Navigator {
     this.activity = activity;
   }
 
-  public void openWebsite(String url) {
-    Uri uri = Uri.parse(url);
-    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-    activity.startActivity(intent);
-  }
-
   public void goToLogin() {
     finishCurrentActivity();
     Intent intent = new Intent(activity, LoginActivity.class);
@@ -49,6 +46,23 @@ public class Navigator {
 
   public void openLoginWebsite() {
     evernoteSession.authenticate(activity);
+  }
+
+  public void goToNoteDetails(Note note) {
+    finishCurrentActivity();
+    Intent intent = new Intent(activity, NoteDetailsActivity.class);
+    Bundle bundle = new Bundle();
+    bundle.putParcelable(NoteDetailsActivity.NOTE_KEY, note);
+    intent.putExtras(bundle);
+    activity.overridePendingTransition(R.anim.animation_enter_right, R.anim.animation_leave_right);
+    activity.startActivity(intent);
+  }
+
+  public void goBackToNotesList() {
+    finishCurrentActivity();
+    Intent intent = new Intent(activity, NotesListActivity.class);
+    activity.overridePendingTransition(R.anim.animation_enter_left, R.anim.animation_leave_left);
+    activity.startActivity(intent);
   }
 
   private void finishCurrentActivity() {

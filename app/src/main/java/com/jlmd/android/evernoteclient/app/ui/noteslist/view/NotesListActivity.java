@@ -2,11 +2,13 @@ package com.jlmd.android.evernoteclient.app.ui.noteslist.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.jlmd.android.evernoteclient.R;
 import com.jlmd.android.evernoteclient.app.base.BaseActivity;
+import com.jlmd.android.evernoteclient.app.ui.View;
 import com.jlmd.android.evernoteclient.app.ui.custom.view.ClickRecyclerView;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.adapter.NotesListAdapter;
 import com.jlmd.android.evernoteclient.domain.model.Note;
@@ -18,7 +20,7 @@ import javax.inject.Inject;
 /**
  * @author jlmd
  */
-public class NotesListActivity extends BaseActivity {
+public class NotesListActivity extends BaseActivity implements View {
 
   @Inject protected NotesListPresenter notesListPresenter;
   @Bind(R.id.toolbar) protected Toolbar toolbar;
@@ -36,10 +38,16 @@ public class NotesListActivity extends BaseActivity {
   }
 
   private void initRecyclerView() {
-    //notesRecyclerView.setHasFixedSize(false);
+    notesRecyclerView.setHasFixedSize(false);
     notesListAdapter = new NotesListAdapter();
     notesRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
     notesRecyclerView.setAdapter(notesListAdapter);
+    notesRecyclerView.setOnItemClickListener(new ClickRecyclerView.OnItemClickListener() {
+      @Override
+      public void onItemClick(RecyclerView parent, android.view.View view, int position, long id) {
+        notesListPresenter.onItemClicked(position);
+      }
+    });
   }
 
   @Override
