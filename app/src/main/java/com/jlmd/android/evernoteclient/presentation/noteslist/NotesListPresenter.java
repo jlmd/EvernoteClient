@@ -1,6 +1,7 @@
 package com.jlmd.android.evernoteclient.presentation.noteslist;
 
 import android.util.Log;
+import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
 import com.jlmd.android.evernoteclient.domain.model.Note;
@@ -13,10 +14,12 @@ import java.util.List;
 public class NotesListPresenter extends Presenter<NotesListActivity> {
 
   private final GetNotesList getNotesList;
+  private final Navigator navigator;
   private List<Note> notes;
 
-  public NotesListPresenter(GetNotesList getNotesList) {
+  public NotesListPresenter(GetNotesList getNotesList, Navigator navigator) {
     this.getNotesList = getNotesList;
+    this.navigator = navigator;
   }
 
   @Override
@@ -31,6 +34,10 @@ public class NotesListPresenter extends Presenter<NotesListActivity> {
 
   private void setNotebookList(List<Note> notes) {
     this.notes = notes;
+  }
+
+  public void onItemClicked(int position) {
+    navigator.goToNoteDetails(notes.get(position));
   }
 
   private class NotesListCallback implements GetNotesList.Callback {
