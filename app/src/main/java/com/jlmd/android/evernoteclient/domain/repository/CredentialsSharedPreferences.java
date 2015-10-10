@@ -29,6 +29,6 @@ public class CredentialsSharedPreferences implements CredentialsRepository {
   public void setCredentials(Credentials credentials) {
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putString(CREDENTIALS_KEY, gson.toJson(credentials));
-    editor.commit();
+    editor.apply();
   }
 }
