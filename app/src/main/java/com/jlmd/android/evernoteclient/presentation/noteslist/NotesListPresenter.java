@@ -2,7 +2,6 @@ package com.jlmd.android.evernoteclient.presentation.noteslist;
 
 import android.util.Log;
 import com.evernote.edam.type.Note;
-import com.evernote.edam.type.Notebook;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.NotesListActivity;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
 import com.jlmd.android.evernoteclient.presentation.Presenter;

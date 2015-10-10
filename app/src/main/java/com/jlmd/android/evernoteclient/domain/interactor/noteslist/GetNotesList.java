@@ -1,7 +1,6 @@
 package com.jlmd.android.evernoteclient.domain.interactor.noteslist;
 
 import com.evernote.edam.type.Note;
-import com.evernote.edam.type.Notebook;
 import com.jlmd.android.evernoteclient.app.executor.InteractorExecutor;
 import com.jlmd.android.evernoteclient.app.executor.MainThreadExecutor;
 import com.jlmd.android.evernoteclient.data.repository.NotesListRepository;

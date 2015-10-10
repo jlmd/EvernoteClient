@@ -16,15 +16,15 @@
       />
 
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:background="@color/login_button_background"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/login_button"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        />
+  <Button
+      android:id="@+id/btn_login"
+      android:layout_width="300dp"
+      android:layout_height="50dp"
+      android:background="@color/login_button_background"
+      android:layout_gravity="center_horizontal"
+      android:text="@string/login_button"
+      android:textSize="20sp"
+      android:textColor="@android:color/white"
+      />
 
 </LinearLayout>

@@ -20,7 +20,6 @@ public class LoginPresenter extends Presenter<LoginActivity> {
   }
 
   public void onLoggedOk() {
-    // TODO Store credentials in shared preferences or something...
     navigator.goToNotesList();
   }
 

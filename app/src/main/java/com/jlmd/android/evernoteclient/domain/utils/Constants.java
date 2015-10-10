@@ -11,5 +11,4 @@ public final class Constants {
   private Constants() {
     // Instances not allowed
   }
-
 }

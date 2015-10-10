@@ -1,8 +1,8 @@
 package com.jlmd.android.evernoteclient.app.di;
 
+import com.evernote.client.android.EvernoteSession;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
-import com.jlmd.android.evernoteclient.domain.repository.CredentialsRepository;
 import com.jlmd.android.evernoteclient.presentation.login.LoginPresenter;
 import com.jlmd.android.evernoteclient.presentation.main.MainPresenter;
 import com.jlmd.android.evernoteclient.presentation.noteslist.NotesListPresenter;
@@ -26,9 +26,8 @@ public final class PresenterModule {
 
   @Provides
   @Singleton
-  MainPresenter provideMainPresenter(CredentialsRepository credentialsRepository,
-      Navigator navigator) {
-    return new MainPresenter(credentialsRepository, navigator);
+  MainPresenter provideMainPresenter(Navigator navigator, EvernoteSession evernoteSession) {
+    return new MainPresenter(navigator, evernoteSession);
   }
 
   @Provides

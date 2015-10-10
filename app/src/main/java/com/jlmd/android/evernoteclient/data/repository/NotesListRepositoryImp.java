@@ -1,7 +1,6 @@
 package com.jlmd.android.evernoteclient.data.repository;
 
 import com.evernote.edam.type.Note;
-import com.evernote.edam.type.Notebook;
 import com.jlmd.android.evernoteclient.data.datasource.NotesListDataSource;
 import java.util.List;
 

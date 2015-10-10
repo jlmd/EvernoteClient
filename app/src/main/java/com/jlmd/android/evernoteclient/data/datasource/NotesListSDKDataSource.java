@@ -7,7 +7,6 @@ import com.evernote.edam.error.EDAMSystemException;
 import com.evernote.edam.error.EDAMUserException;
 import com.evernote.edam.notestore.NoteFilter;
 import com.evernote.edam.type.Note;
-import com.evernote.edam.type.Notebook;
 import com.evernote.thrift.TException;
 import java.util.Collections;
 import java.util.List;

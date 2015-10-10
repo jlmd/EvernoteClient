@@ -47,7 +47,6 @@ public class Navigator {
     activity.startActivity(intent);
   }
 
-
   public void openLoginWebsite() {
     evernoteSession.authenticate(activity);
   }

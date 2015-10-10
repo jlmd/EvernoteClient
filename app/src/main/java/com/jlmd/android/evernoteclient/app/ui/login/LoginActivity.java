@@ -3,7 +3,6 @@ package com.jlmd.android.evernoteclient.app.ui.login;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
