@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author jlmd
  */
-public class NotesMapper
+public class NotesToDomainMapper
     implements Mapper<List<com.evernote.edam.type.Note>, List<Note>> {
 
   private Note mapNote(com.evernote.edam.type.Note note) {

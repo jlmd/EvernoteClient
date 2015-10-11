@@ -1,27 +1,28 @@
-package com.jlmd.android.evernoteclient.domain.interactor.noteslist;
+package com.jlmd.android.evernoteclient.domain.interactor.addnote;
 
 import com.jlmd.android.evernoteclient.app.executor.InteractorExecutor;
 import com.jlmd.android.evernoteclient.app.executor.MainThreadExecutor;
 import com.jlmd.android.evernoteclient.data.repository.NoteRepository;
 import com.jlmd.android.evernoteclient.domain.interactor.AbstractInteractor;
 import com.jlmd.android.evernoteclient.domain.model.Note;
-import java.util.List;
 
 /**
  * @author jlmd
  */
-public class GetNotesList extends AbstractInteractor {
+public class AddNote extends AbstractInteractor {
 
   private final NoteRepository noteRepository;
   private Callback callback;
+  private Note note;
 
-  public GetNotesList(InteractorExecutor interactorExecutor, MainThreadExecutor mainThreadExecutor,
+  public AddNote(InteractorExecutor interactorExecutor, MainThreadExecutor mainThreadExecutor,
       NoteRepository noteRepository) {
     super(interactorExecutor, mainThreadExecutor);
     this.noteRepository = noteRepository;
   }
 
-  public void getNotesList(Callback callback) {
+  public void addNote(Note note, Callback callback) {
+    this.note = note;
     this.callback = callback;
     executeCurrentInteractor();
   }
@@ -29,18 +30,18 @@ public class GetNotesList extends AbstractInteractor {
   @Override
   public void run() {
     try {
-      List<Note> notes = noteRepository.getNotes();
-      doSuccess(notes);
+      noteRepository.addNote(note);
+      doSuccess();
     } catch (Exception e) {
       doError(e);
     }
   }
 
-  private void doSuccess(final List<Note> notes) {
+  private void doSuccess() {
     executeInMainThread(new Runnable() {
       @Override
       public void run() {
-        callback.onSuccess(notes);
+        callback.onSuccess();
       }
     });
   }
@@ -56,7 +57,7 @@ public class GetNotesList extends AbstractInteractor {
 
   public interface Callback {
 
-    void onSuccess(List<Note> notebooks);
+    void onSuccess();
 
     void onError(Throwable throwable);
   }

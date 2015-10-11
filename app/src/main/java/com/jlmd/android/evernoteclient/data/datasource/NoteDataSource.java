@@ -6,7 +6,9 @@ import java.util.List;
 /**
  * @author jlmd
  */
-public interface NotesListDataSource {
+public interface NoteDataSource {
 
   List<Note> getNotes();
+
+  void addNote(Note note);
 }

@@ -2,7 +2,9 @@ package com.jlmd.android.evernoteclient.app.di;
 
 import com.evernote.client.android.EvernoteSession;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
+import com.jlmd.android.evernoteclient.domain.interactor.addnote.AddNote;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
+import com.jlmd.android.evernoteclient.presentation.addnote.AddNotePresenter;
 import com.jlmd.android.evernoteclient.presentation.login.LoginPresenter;
 import com.jlmd.android.evernoteclient.presentation.main.MainPresenter;
 import com.jlmd.android.evernoteclient.presentation.notedetails.NoteDetailsPresenter;
@@ -41,5 +43,11 @@ public final class PresenterModule {
   @Singleton
   NoteDetailsPresenter provideNoteDetailsPresenter(Navigator navigator) {
     return new NoteDetailsPresenter(navigator);
+  }
+
+  @Provides
+  @Singleton
+  AddNotePresenter provideAddNotePresenter(AddNote addNote, Navigator navigator) {
+    return new AddNotePresenter(navigator, addNote);
   }
 }

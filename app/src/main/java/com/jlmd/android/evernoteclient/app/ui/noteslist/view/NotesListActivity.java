@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.jlmd.android.evernoteclient.R;
 import com.jlmd.android.evernoteclient.app.base.BaseActivity;
 import com.jlmd.android.evernoteclient.app.ui.View;
@@ -57,5 +58,10 @@ public class NotesListActivity extends BaseActivity implements View {
 
   public void renderNotes(List<Note> notes) {
     notesListAdapter.updateNotes(notes);
+  }
+
+  @OnClick(R.id.fab_add_note)
+  public void onAddNoteClick() {
+    notesListPresenter.onAddItemClick();
   }
 }

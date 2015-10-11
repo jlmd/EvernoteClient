@@ -8,35 +8,39 @@ import com.evernote.edam.error.EDAMUserException;
 import com.evernote.edam.notestore.NoteFilter;
 import com.evernote.edam.type.Note;
 import com.evernote.thrift.TException;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * @author jlmd
  */
-public class NotesListSDKDataSource implements NotesListDataSource {
+public class NoteSDKDataSource implements NoteDataSource {
 
   private final EvernoteSession evernoteSession;
 
-  public NotesListSDKDataSource(EvernoteSession evernoteSession) {
+
+  public NoteSDKDataSource(EvernoteSession evernoteSession) {
     this.evernoteSession = evernoteSession;
   }
 
   @Override
-  public List<Note> getNotes() {
+  public List<Note> getNotes() throws RuntimeException {
     EvernoteNoteStoreClient noteStoreClient =
         evernoteSession.getEvernoteClientFactory().getNoteStoreClient();
     try {
       return noteStoreClient.findNotes(new NoteFilter(), 0, 100).getNotes();
-    } catch (EDAMUserException e) {
-      e.printStackTrace();
-    } catch (EDAMSystemException e) {
-      e.printStackTrace();
-    } catch (EDAMNotFoundException e) {
-      e.printStackTrace();
-    } catch (TException e) {
-      e.printStackTrace();
+    } catch (EDAMUserException | EDAMSystemException | EDAMNotFoundException | TException e) {
+      throw new RuntimeException("Unexpected error obtaining notes using Evernote SDK", e);
     }
-    return Collections.emptyList();
+  }
+
+  @Override
+  public void addNote(Note note) throws RuntimeException {
+    EvernoteNoteStoreClient noteStoreClient =
+        evernoteSession.getEvernoteClientFactory().getNoteStoreClient();
+    try {
+      noteStoreClient.createNote(note);
+    } catch (EDAMUserException | EDAMSystemException | TException | EDAMNotFoundException e) {
+      throw new RuntimeException("Unexpected error adding note using Evernote SDK", e);
+    }
   }
 }

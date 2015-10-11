@@ -1,6 +1,7 @@
 package com.jlmd.android.evernoteclient.app.di;
 
-import com.jlmd.android.evernoteclient.data.mapper.NotesMapper;
+import com.jlmd.android.evernoteclient.data.mapper.NoteFromDomainMapper;
+import com.jlmd.android.evernoteclient.data.mapper.NotesToDomainMapper;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -15,7 +16,13 @@ public final class MapperModule {
 
   @Provides
   @Singleton
-  NotesMapper provideNotesMapper() {
-    return new NotesMapper();
+  NoteFromDomainMapper provideNoteFromDomainMapper() {
+    return new NoteFromDomainMapper();
+  }
+
+  @Provides
+  @Singleton
+  NotesToDomainMapper provideNotesToDomainMapper() {
+    return new NotesToDomainMapper();
   }
 }
