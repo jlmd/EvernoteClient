@@ -9,4 +9,10 @@
   <string name="login_button">Login</string>
   <string name="login_error">An error occurred obtained user credentials</string>
 
+  <!-- Add note -->
+  <string name="add_note_toolbar">Add note</string>
+  <string name="add_note_title_hint">Title</string>
+  <string name="add_note_author_hint">Author</string>
+  <string name="add_note_content_hint">Content</string>
+
 </resources>

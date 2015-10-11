@@ -13,6 +13,7 @@ import com.jlmd.android.evernoteclient.presentation.Presenter;
  */
 public class AddNotePresenter extends Presenter<AddNoteActivity> {
 
+  private static final String TAG = AddNotePresenter.class.getSimpleName();
   private final AddNote addNote;
   private final Navigator navigator;
 
@@ -21,23 +22,26 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
     this.navigator = navigator;
   }
 
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    Note note = new Note();
-    note.setTitle("testing add note4");
-    note.setContent(NoteContentParser.getContentText("asda"));
-    note.setCreated(3434l);
-    addNote.addNote(note, new AddNote.Callback() {
-      @Override
-      public void onSuccess() {
-        Log.i("ASD", "Done");
-      }
+  public void saveNote(String title, String author, String content) {
+    Note note = new Note(title, author, NoteContentParser.getContentText(content));
+    addNote.addNote(note, new AddNoteCallback());
+  }
+  public void onBackPressed() {
+    navigator.goBackToNotesList();
+  }
 
-      @Override
-      public void onError(Throwable throwable) {
-        Log.e("ASD", "Error", throwable);
-      }
-    });
+  private class AddNoteCallback implements AddNote.Callback {
+
+    @Override
+    public void onSuccess() {
+      Log.i(TAG, "Note saved successfully");
+      navigator.goBackToNotesList();
+    }
+
+    @Override
+    public void onError(Throwable throwable) {
+      Log.e(TAG, "Error saving note", throwable);
+      // TODO Show error
+    }
   }
 }
