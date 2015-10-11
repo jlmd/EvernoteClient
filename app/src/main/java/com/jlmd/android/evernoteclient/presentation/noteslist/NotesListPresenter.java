@@ -40,6 +40,10 @@ public class NotesListPresenter extends Presenter<NotesListActivity> {
     navigator.goToNoteDetails(notes.get(position));
   }
 
+  public void onAddItemClick() {
+    navigator.goToAddNote();
+  }
+
   private class NotesListCallback implements GetNotesList.Callback {
 
     @Override

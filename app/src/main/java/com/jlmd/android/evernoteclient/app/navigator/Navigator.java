@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.evernote.client.android.EvernoteSession;
 import com.jlmd.android.evernoteclient.R;
+import com.jlmd.android.evernoteclient.app.ui.addnote.AddNoteActivity;
 import com.jlmd.android.evernoteclient.app.ui.login.LoginActivity;
 import com.jlmd.android.evernoteclient.app.ui.notedetails.NoteDetailsActivity;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
@@ -62,6 +63,13 @@ public class Navigator {
     finishCurrentActivity();
     Intent intent = new Intent(activity, NotesListActivity.class);
     activity.overridePendingTransition(R.anim.animation_enter_left, R.anim.animation_leave_left);
+    activity.startActivity(intent);
+  }
+
+  public void goToAddNote() {
+    finishCurrentActivity();
+    Intent intent = new Intent(activity, AddNoteActivity.class);
+    activity.overridePendingTransition(R.anim.animation_enter_right, R.anim.animation_leave_right);
     activity.startActivity(intent);
   }
 

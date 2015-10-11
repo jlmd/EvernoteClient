@@ -1,9 +1,10 @@
 package com.jlmd.android.evernoteclient.app.di;
 
-import com.jlmd.android.evernoteclient.data.datasource.NotesListDataSource;
-import com.jlmd.android.evernoteclient.data.mapper.NotesMapper;
-import com.jlmd.android.evernoteclient.data.repository.NotesListRepository;
-import com.jlmd.android.evernoteclient.data.repository.NotesListRepositoryImp;
+import com.jlmd.android.evernoteclient.data.datasource.NoteDataSource;
+import com.jlmd.android.evernoteclient.data.mapper.NoteFromDomainMapper;
+import com.jlmd.android.evernoteclient.data.mapper.NotesToDomainMapper;
+import com.jlmd.android.evernoteclient.data.repository.NoteRepository;
+import com.jlmd.android.evernoteclient.data.repository.NoteRepositoryImp;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -18,8 +19,8 @@ public final class RepositoryModule {
 
   @Provides
   @Singleton
-  NotesListRepository provideNotesListRepository(NotesListDataSource notesListDataSource,
-      NotesMapper notesMapper) {
-    return new NotesListRepositoryImp(notesListDataSource, notesMapper);
+  NoteRepository provideNotesListRepository(NoteDataSource noteDataSource,
+      NotesToDomainMapper notesToDomainMapper, NoteFromDomainMapper noteFromDomainMapper) {
+    return new NoteRepositoryImp(noteDataSource, notesToDomainMapper, noteFromDomainMapper);
   }
 }

@@ -6,7 +6,9 @@ import java.util.List;
 /**
  * @author jlmd
  */
-public interface NotesListRepository {
+public interface NoteRepository {
 
   List<Note> getNotes();
+
+  void addNote(Note note);
 }

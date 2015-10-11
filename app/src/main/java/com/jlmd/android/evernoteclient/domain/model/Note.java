@@ -29,6 +29,12 @@ public class Note implements Parcelable {
     // Empty constructor
   }
 
+  public Note(String title, String author, String content) {
+    this.title = title;
+    this.author = author;
+    this.content = content;
+  }
+
   protected Note(Parcel in) {
     title = in.readString();
     content = in.readString();
