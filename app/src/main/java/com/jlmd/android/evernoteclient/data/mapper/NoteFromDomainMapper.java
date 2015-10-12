@@ -15,9 +15,9 @@ public class NoteFromDomainMapper
     mappedNote.setTitle(note.getTitle());
     mappedNote.setContent(note.getContent());
     mappedNote.setCreated(note.getCreated());
-    //NoteAttributes noteAttributes = new NoteAttributes();
-    //noteAttributes.setAuthor(note.getAuthor());
-    //mappedNote.setAttributes(noteAttributes);
+    NoteAttributes noteAttributes = new NoteAttributes();
+    noteAttributes.setAuthor(note.getAuthor());
+    mappedNote.setAttributes(noteAttributes);
     return mappedNote;
   }
 }
