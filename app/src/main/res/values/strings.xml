@@ -14,6 +14,7 @@
   <string name="add_note_title_hint">Title</string>
   <string name="add_note_author_hint">Author</string>
   <string name="add_note_content_hint">Content</string>
+  <string name="add_note_unexpected_error">Unexpected error adding new note</string>
 
 
   <!-- List notes -->
