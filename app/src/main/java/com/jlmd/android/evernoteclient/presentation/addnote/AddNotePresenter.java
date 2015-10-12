@@ -2,6 +2,7 @@ package com.jlmd.android.evernoteclient.presentation.addnote;
 
 import android.graphics.Bitmap;
 import android.util.Log;
+import com.googlecode.tesseract.android.TessBaseAPI;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.addnote.AddNoteActivity;
 import com.jlmd.android.evernoteclient.domain.interactor.addnote.AddNote;
@@ -17,10 +18,12 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
   private static final String TAG = AddNotePresenter.class.getSimpleName();
   private final AddNote addNote;
   private final Navigator navigator;
+  private final TessBaseAPI tessBaseAPI;
 
-  public AddNotePresenter(Navigator navigator, AddNote addNote) {
+  public AddNotePresenter(Navigator navigator, AddNote addNote, TessBaseAPI tessBaseAPI) {
     this.addNote = addNote;
     this.navigator = navigator;
+    this.tessBaseAPI = tessBaseAPI;
   }
 
   public void onSaveNoteClick(String title, String author, String content) {
@@ -38,7 +41,9 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
   }
 
   public void onBitmapCreated(Bitmap bitmap) {
-    Log.i(TAG, "I have the bitmap!");
+    tessBaseAPI.setImage(bitmap);
+    String recognizedText = tessBaseAPI.getUTF8Text();
+    view.setTextOnFocusedElement(recognizedText);
   }
 
   private class AddNoteCallback implements AddNote.Callback {

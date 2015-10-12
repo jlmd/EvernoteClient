@@ -1,6 +1,7 @@
 package com.jlmd.android.evernoteclient.app.di;
 
 import com.evernote.client.android.EvernoteSession;
+import com.googlecode.tesseract.android.TessBaseAPI;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.domain.interactor.addnote.AddNote;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
@@ -47,7 +48,8 @@ public final class PresenterModule {
 
   @Provides
   @Singleton
-  AddNotePresenter provideAddNotePresenter(AddNote addNote, Navigator navigator) {
-    return new AddNotePresenter(navigator, addNote);
+  AddNotePresenter provideAddNotePresenter(AddNote addNote, Navigator navigator,
+      TessBaseAPI tessBaseAPI) {
+    return new AddNotePresenter(navigator, addNote, tessBaseAPI);
   }
 }
