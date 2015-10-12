@@ -23,6 +23,7 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
   }
 
   public void saveNote(String title, String author, String content) {
+    view.showLoading();
     Note note = new Note(title, author, NoteContentParser.getContentText(content));
     addNote.addNote(note, new AddNoteCallback());
   }
@@ -36,13 +37,14 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
     @Override
     public void onSuccess() {
       Log.i(TAG, "Note saved successfully");
+      view.hideLoading();
       navigator.goBackToNotesList();
     }
 
     @Override
     public void onError(Throwable throwable) {
       Log.e(TAG, "Error saving note", throwable);
-      // TODO Show error
+      view.showUnexpectedError();
     }
   }
 }

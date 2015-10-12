@@ -3,6 +3,8 @@ package com.jlmd.android.evernoteclient.app.ui.addnote;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,6 +25,7 @@ public class AddNoteActivity extends BaseActivity implements View {
   @Bind(R.id.et_title) protected EditText etTitle;
   @Bind(R.id.et_author) protected EditText etAuthor;
   @Bind(R.id.et_content) protected EditText etContent;
+  @Bind(R.id.pb_loading) protected ProgressBar pbLoading;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,19 @@ public class AddNoteActivity extends BaseActivity implements View {
         addNotePresenter.onBackPressed();
       }
     });
+  }
+
+  public void showUnexpectedError() {
+    Toast.makeText(getApplicationContext(),
+        getResources().getString(R.string.add_note_unexpected_error), Toast.LENGTH_LONG).show();
+  }
+
+  public void showLoading() {
+    pbLoading.setVisibility(android.view.View.VISIBLE);
+  }
+
+  public void hideLoading() {
+    pbLoading.setVisibility(android.view.View.INVISIBLE);
   }
 
   @Override
