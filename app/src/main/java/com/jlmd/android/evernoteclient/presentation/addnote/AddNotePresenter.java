@@ -26,6 +26,7 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
     Note note = new Note(title, author, NoteContentParser.getContentText(content));
     addNote.addNote(note, new AddNoteCallback());
   }
+
   public void onBackPressed() {
     navigator.goBackToNotesList();
   }
