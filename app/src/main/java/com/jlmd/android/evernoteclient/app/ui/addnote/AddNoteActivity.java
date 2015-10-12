@@ -64,6 +64,12 @@ public class AddNoteActivity extends BaseActivity implements View {
     pbLoading.setVisibility(android.view.View.INVISIBLE);
   }
 
+  public void setTextOnFocusedElement(String text) {
+    if (getCurrentFocus() instanceof EditText) {
+      ((EditText) getCurrentFocus()).setText(text);
+    }
+  }
+
   public void showDrawPanel() {
     new DrawPanelDialog(this, new DrawPanelDialog.Callback() {
       @Override

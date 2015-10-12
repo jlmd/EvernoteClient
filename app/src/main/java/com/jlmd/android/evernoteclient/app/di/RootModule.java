@@ -21,7 +21,7 @@ import javax.inject.Singleton;
 @Module(
     includes = {
         PresenterModule.class, InteractorModule.class, ExecutorModule.class, RepositoryModule.class,
-        EvernoteSDKModule.class, DataSourceModule.class, MapperModule.class
+        EvernoteSDKModule.class, DataSourceModule.class, MapperModule.class, TesseractModule.class
     },
     injects = {
         ApplicationClass.class, LoginActivity.class, MainActivity.class, NotesListActivity.class,
