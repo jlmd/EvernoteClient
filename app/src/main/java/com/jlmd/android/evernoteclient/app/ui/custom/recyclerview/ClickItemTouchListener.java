@@ -1,4 +1,4 @@
-package com.jlmd.android.evernoteclient.app.ui.custom.view;
+package com.jlmd.android.evernoteclient.app.ui.custom.recyclerview;
 
 import android.content.Context;
 import android.os.Build;

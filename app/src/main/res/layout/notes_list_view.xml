@@ -11,7 +11,7 @@
       layout="@layout/toolbar"
       />
 
-  <com.jlmd.android.evernoteclient.app.ui.custom.view.ClickRecyclerView
+  <com.jlmd.android.evernoteclient.app.ui.custom.recyclerview.ClickRecyclerView
       android:id="@+id/rv_notes_list"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

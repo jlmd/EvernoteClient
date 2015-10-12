@@ -26,6 +26,14 @@
           android:layout_marginRight="10dp"
           android:src="@drawable/ic_save_white_24dp"/>
 
+      <ImageView
+          android:id="@+id/ic_draw_note"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="right"
+          android:layout_marginRight="10dp"
+          android:src="@drawable/ic_border_color_white_24dp"/>
+
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
