@@ -5,6 +5,8 @@ import com.jlmd.android.evernoteclient.app.executor.InteractorExecutor;
 import com.jlmd.android.evernoteclient.app.executor.MainThreadExecutor;
 
 /**
+ * Abstract interactor which provides generic interactor methods
+ *
  * @author jlmd
  */
 public abstract class AbstractInteractor implements Interactor {

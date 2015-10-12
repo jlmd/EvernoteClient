@@ -4,6 +4,8 @@ import com.evernote.edam.type.Note;
 import com.evernote.edam.type.NoteAttributes;
 
 /**
+ * Maps a domain note to sdk note
+ *
  * @author jlmd
  */
 public class NoteFromDomainMapper

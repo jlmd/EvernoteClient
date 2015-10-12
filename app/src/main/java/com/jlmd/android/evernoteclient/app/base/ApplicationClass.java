@@ -5,6 +5,8 @@ import com.jlmd.android.evernoteclient.app.di.RootModule;
 import dagger.ObjectGraph;
 
 /**
+ * Base Application which inject Dagger object graph
+ *
  * @author jlmd
  */
 public class ApplicationClass extends Application {

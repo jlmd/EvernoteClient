@@ -8,6 +8,8 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module for data sources
+ *
  * @author jlmd
  */
 @Module(

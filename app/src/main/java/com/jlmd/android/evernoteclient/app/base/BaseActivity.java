@@ -8,6 +8,10 @@ import com.jlmd.android.evernoteclient.presentation.Presenter;
 import javax.inject.Inject;
 
 /**
+ * Activity used as base in every activities.
+ * Binds activity lifecycle with presenter, injects dagger, and defines current activity in
+ * navigator
+ *
  * @author jlmd
  */
 public abstract class BaseActivity extends AppCompatActivity implements View {

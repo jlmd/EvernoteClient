@@ -16,6 +16,8 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 /**
+ * Tesseract module which provides tesseract api and copies tesseract languages to external storage
+ *
  * @author jlmd
  */
 @Module(

@@ -7,6 +7,8 @@ import com.jlmd.android.evernoteclient.domain.model.Note;
 import java.util.List;
 
 /**
+ * Note repository which obtains notes from SDK data source and maps it in app domain
+ *
  * @author jlmd
  */
 public class NoteRepositoryImp implements NoteRepository {

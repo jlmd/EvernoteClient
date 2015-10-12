@@ -9,6 +9,8 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module which provides executors used in interactors
+ *
  * @author jlmd
  */
 @Module(

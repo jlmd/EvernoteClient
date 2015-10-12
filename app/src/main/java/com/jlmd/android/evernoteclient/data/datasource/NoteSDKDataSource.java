@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Implementation for obtain notes from evernote using their public SDK
+ *
  * @author jlmd
  */
 public class NoteSDKDataSource implements NoteDataSource {
