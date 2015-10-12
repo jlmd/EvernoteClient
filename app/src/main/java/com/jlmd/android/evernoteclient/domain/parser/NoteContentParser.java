@@ -16,10 +16,22 @@ public final class NoteContentParser {
 
   /**
    * Adds DNML structure to a text
+   *
    * @param text Text to add
    * @return Formatted DNML content with provided text
    */
   public static String getContentText(String text) {
     return String.format(CONTENT_TEXT_MASK, text);
+  }
+
+  /**
+   * Get text from DNML structure
+   *
+   * @param text DNML
+   * @return Text
+   */
+  public static String getTextFromContent(String text) {
+    return text.substring(text.indexOf("<en-note>") + "<en-note>".length(),
+        text.indexOf("</en-note>"));
   }
 }
