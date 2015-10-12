@@ -1,6 +1,5 @@
 package com.jlmd.android.evernoteclient.presentation.noteslist;
 
-import android.util.Log;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
 import com.jlmd.android.evernoteclient.domain.comparator.NoteDateComparator;
@@ -74,8 +73,7 @@ public class NotesListPresenter extends Presenter<NotesListActivity> {
     @Override
     public void onError(Throwable throwable) {
       view.hideLoading();
-      // TODO Call the view to show an error
-      Log.e("NotesListPresenter", "Error obtaining note list", throwable);
+      view.showUnexpectedError();
     }
   }
 }

@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -94,6 +94,11 @@ public class NotesListActivity extends BaseActivity implements View {
 
   public void hideLoading() {
     pbLoading.setVisibility(android.view.View.INVISIBLE);
+  }
+
+  public void showUnexpectedError() {
+    Toast.makeText(getApplicationContext(),
+        getResources().getString(R.string.list_notes_unexpected_error), Toast.LENGTH_LONG).show();
   }
 
   @OnClick(R.id.fab_add_note)
