@@ -15,4 +15,9 @@
   <string name="add_note_author_hint">Author</string>
   <string name="add_note_content_hint">Content</string>
 
+
+  <!-- List notes -->
+  <string name="menu_item_sort_note_title">Sort by title</string>
+  <string name="menu_item_sort_note_date">Sort by date</string>
+
 </resources>

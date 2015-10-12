@@ -3,9 +3,12 @@ package com.jlmd.android.evernoteclient.presentation.noteslist;
 import android.util.Log;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
+import com.jlmd.android.evernoteclient.domain.comparator.NoteDateComparator;
+import com.jlmd.android.evernoteclient.domain.comparator.NoteTitleComparator;
 import com.jlmd.android.evernoteclient.domain.interactor.noteslist.GetNotesList;
 import com.jlmd.android.evernoteclient.domain.model.Note;
 import com.jlmd.android.evernoteclient.presentation.Presenter;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -44,12 +47,26 @@ public class NotesListPresenter extends Presenter<NotesListActivity> {
     navigator.goToAddNote();
   }
 
+  public void sortNotesByTitle() {
+    Collections.sort(notes, new NoteTitleComparator());
+    updateNotesView();
+  }
+
+  public void sortNotesByDate() {
+    Collections.sort(notes, new NoteDateComparator());
+    updateNotesView();
+  }
+
+  private void updateNotesView() {
+    view.renderNotes(notes);
+  }
+
   private class NotesListCallback implements GetNotesList.Callback {
 
     @Override
     public void onSuccess(List<Note> notes) {
       setNotebookList(notes);
-      view.renderNotes(notes);
+      updateNotesView();
     }
 
     @Override

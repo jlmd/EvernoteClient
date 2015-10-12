@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -49,6 +52,28 @@ public class NotesListActivity extends BaseActivity implements View {
         notesListPresenter.onItemClicked(position);
       }
     });
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_list_notes, menu);
+    return true;
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle item selection
+    switch (item.getItemId()) {
+      case R.id.menu_item_sort_note_title:
+        notesListPresenter.sortNotesByTitle();
+        return true;
+      case R.id.menu_item_sort_note_date:
+        notesListPresenter.sortNotesByDate();
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
   }
 
   @Override
