@@ -15,7 +15,7 @@ import butterknife.OnClick;
 import com.jlmd.android.evernoteclient.R;
 import com.jlmd.android.evernoteclient.app.base.BaseActivity;
 import com.jlmd.android.evernoteclient.app.ui.View;
-import com.jlmd.android.evernoteclient.app.ui.custom.view.ClickRecyclerView;
+import com.jlmd.android.evernoteclient.app.ui.custom.recyclerview.ClickRecyclerView;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.adapter.NotesListAdapter;
 import com.jlmd.android.evernoteclient.domain.model.Note;
 import com.jlmd.android.evernoteclient.presentation.Presenter;

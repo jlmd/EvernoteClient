@@ -15,6 +15,8 @@
   <string name="add_note_author_hint">Author</string>
   <string name="add_note_content_hint">Content</string>
   <string name="add_note_unexpected_error">Unexpected error adding new note</string>
+  <string name="add_note_draw_text_ok">Ok</string>
+  <string name="add_note_draw_text_cancel">Cancel</string>
 
 
   <!-- List notes -->

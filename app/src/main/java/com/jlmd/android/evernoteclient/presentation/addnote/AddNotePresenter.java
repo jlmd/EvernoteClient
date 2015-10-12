@@ -1,5 +1,6 @@
 package com.jlmd.android.evernoteclient.presentation.addnote;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.addnote.AddNoteActivity;
@@ -22,7 +23,7 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
     this.navigator = navigator;
   }
 
-  public void saveNote(String title, String author, String content) {
+  public void onSaveNoteClick(String title, String author, String content) {
     view.showLoading();
     Note note = new Note(title, author, NoteContentParser.getContentText(content));
     addNote.addNote(note, new AddNoteCallback());
@@ -30,6 +31,14 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
 
   public void onBackPressed() {
     navigator.goBackToNotesList();
+  }
+
+  public void onDrawTextClick() {
+    view.showDrawPanel();
+  }
+
+  public void onBitmapCreated(Bitmap bitmap) {
+    Log.i(TAG, "I have the bitmap!");
   }
 
   private class AddNoteCallback implements AddNote.Callback {

@@ -1,5 +1,6 @@
 package com.jlmd.android.evernoteclient.app.ui.addnote;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import butterknife.OnClick;
 import com.jlmd.android.evernoteclient.R;
 import com.jlmd.android.evernoteclient.app.base.BaseActivity;
 import com.jlmd.android.evernoteclient.app.ui.View;
+import com.jlmd.android.evernoteclient.app.ui.custom.drawpanel.DrawPanelDialog;
 import com.jlmd.android.evernoteclient.presentation.Presenter;
 import com.jlmd.android.evernoteclient.presentation.addnote.AddNotePresenter;
 import javax.inject.Inject;
@@ -62,14 +64,28 @@ public class AddNoteActivity extends BaseActivity implements View {
     pbLoading.setVisibility(android.view.View.INVISIBLE);
   }
 
+  public void showDrawPanel() {
+    new DrawPanelDialog(this, new DrawPanelDialog.Callback() {
+      @Override
+      public void onBitmapCreated(final Bitmap bitmap) {
+        addNotePresenter.onBitmapCreated(bitmap);
+      }
+    }).show();
+  }
+
   @Override
   public Presenter bindPresenter() {
     return addNotePresenter;
   }
 
+  @OnClick(R.id.ic_draw_note)
+  public void onDrawNoteClick() {
+    addNotePresenter.onDrawTextClick();
+  }
+
   @OnClick(R.id.iv_save_note)
   public void onSaveNoteClick() {
-    addNotePresenter.saveNote(etTitle.getText().toString(), etAuthor.getText().toString(),
+    addNotePresenter.onSaveNoteClick(etTitle.getText().toString(), etAuthor.getText().toString(),
         etContent.getText().toString());
   }
 }
