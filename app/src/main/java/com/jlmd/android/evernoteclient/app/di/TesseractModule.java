@@ -25,28 +25,29 @@ public final class TesseractModule {
 
   private static final String LANG = "eng";
 
+  /**
+   * Copies tesseract languages into device external storage and returns path uri
+   */
   @Singleton
   @Named("tesseract_lang_path")
   @Provides
   String provideTesseractLangPath(Context appContext) {
-    String basePath = Environment.getExternalStorageDirectory().toString() + "/EvernoteClient/";
-    String tessDataFolder = "tessdata";
+    String basePath =
+        Environment.getExternalStorageDirectory().getAbsolutePath() + "/EvernoteClient/";
+    String tessDataFolder = "tessdata/";
     String languageExtension = ".traineddata";
     String externalLangPath = basePath + tessDataFolder + LANG + languageExtension;
-    File dir = new File(basePath);
-    if (!dir.exists()) {
-      dir.mkdirs();
-    }
-    dir = new File(basePath + tessDataFolder);
+    File dir = new File(basePath + tessDataFolder);
     if (!dir.exists()) {
       dir.mkdirs();
     }
     if (!(new File(externalLangPath)).exists()) {
-      String assetLangPath = tessDataFolder + "/" + LANG + languageExtension;
+      String assetLangPath = tessDataFolder + LANG + languageExtension;
       try {
         copyFileFromAssetsToExternal(appContext, assetLangPath, externalLangPath);
       } catch (IOException e) {
-        Log.e("ProvideTesseractLang", "Error copying files", e);
+        Log.i("ProvideTesseractLang", "Error copying files");
+        return "";
       }
     }
     return basePath;
@@ -55,10 +56,13 @@ public final class TesseractModule {
   @Singleton
   @Provides
   TessBaseAPI provideTessBaseAPI(@Named("tesseract_lang_path") String tesseractLangPath) {
-    Log.i("asd", "path: " + tesseractLangPath);
     TessBaseAPI tessBaseAPI = new TessBaseAPI();
-    tessBaseAPI.init(tesseractLangPath, LANG);
-    return tessBaseAPI;
+    if (!"".equals(tesseractLangPath)) {
+      tessBaseAPI.init(tesseractLangPath, LANG);
+      return tessBaseAPI;
+    } else {
+      return null;
+    }
   }
 
   private void copyFileFromAssetsToExternal(Context context, String assetPath, String externalPath)
