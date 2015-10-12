@@ -1,6 +1,5 @@
 package com.jlmd.android.evernoteclient.presentation.noteslist;
 
-import android.util.Log;
 import com.jlmd.android.evernoteclient.app.navigator.Navigator;
 import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
 import com.jlmd.android.evernoteclient.domain.comparator.NoteDateComparator;
@@ -26,12 +25,13 @@ public class NotesListPresenter extends Presenter<NotesListActivity> {
   }
 
   @Override
-  public void onCreate() {
-    super.onCreate();
+  public void onResume() {
+    super.onResume();
     obtainNotes();
   }
 
   private void obtainNotes() {
+    view.showLoading();
     getNotesList.getNotesList(new NotesListCallback());
   }
 
@@ -65,14 +65,15 @@ public class NotesListPresenter extends Presenter<NotesListActivity> {
 
     @Override
     public void onSuccess(List<Note> notes) {
+      view.hideLoading();
       setNotebookList(notes);
       updateNotesView();
     }
 
     @Override
     public void onError(Throwable throwable) {
-      // TODO Call the view to show an error
-      Log.e("NotesListPresenter", "Error obtaining note list", throwable);
+      view.hideLoading();
+      view.showUnexpectedError();
     }
   }
 }
