@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,6 +31,7 @@ public class NotesListActivity extends BaseActivity implements View {
   @Inject protected NotesListPresenter notesListPresenter;
   @Bind(R.id.toolbar) protected Toolbar toolbar;
   @Bind(R.id.rv_notes_list) protected ClickRecyclerView notesRecyclerView;
+  @Bind(R.id.pb_loading) protected ProgressBar pbLoading;
   private NotesListAdapter notesListAdapter;
 
   @Override
@@ -83,6 +86,14 @@ public class NotesListActivity extends BaseActivity implements View {
 
   public void renderNotes(List<Note> notes) {
     notesListAdapter.updateNotes(notes);
+  }
+
+  public void showLoading() {
+    pbLoading.setVisibility(android.view.View.VISIBLE);
+  }
+
+  public void hideLoading() {
+    pbLoading.setVisibility(android.view.View.INVISIBLE);
   }
 
   @OnClick(R.id.fab_add_note)
