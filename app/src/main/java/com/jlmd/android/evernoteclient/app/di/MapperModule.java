@@ -7,6 +7,8 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module which provides mappers
+ *
  * @author jlmd
  */
 @Module(

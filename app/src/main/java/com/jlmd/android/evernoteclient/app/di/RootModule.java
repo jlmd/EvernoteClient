@@ -15,6 +15,8 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Root Dagger module which contains includes, injects and most bound to system dependencies
+ *
  * @author jlmd
  */
 

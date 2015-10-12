@@ -10,6 +10,8 @@ import butterknife.OnClick;
 import com.jlmd.android.evernoteclient.R;
 
 /**
+ * Dialog which shows a drawing panel and provides the generated bitmap as callback
+ *
  * @author jlmd
  */
 public class DrawPanelDialog extends Dialog {

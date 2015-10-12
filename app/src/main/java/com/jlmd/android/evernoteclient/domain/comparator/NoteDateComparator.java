@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.Date;
 
 /**
+ * Comparator for sort notes by date
+ *
  * @author jlmd
  */
 public class NoteDateComparator implements Comparator<Note> {

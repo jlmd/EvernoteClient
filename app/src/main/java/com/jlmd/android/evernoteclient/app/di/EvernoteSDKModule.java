@@ -8,6 +8,8 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module which provides the Evernote SDK
+ *
  * @author jlmd
  */
 @Module(

@@ -8,6 +8,8 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 
 /**
+ * An extension of RecyclerView which provides item click listener
+ *
  * @author lucasr
  *         From https://github.com/lucasr/twoway-view
  */

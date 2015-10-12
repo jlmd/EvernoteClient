@@ -4,6 +4,8 @@ import com.evernote.edam.type.Note;
 import java.util.List;
 
 /**
+ * Interface used to abstract get note implementations
+ *
  * @author jlmd
  */
 public interface NoteDataSource {

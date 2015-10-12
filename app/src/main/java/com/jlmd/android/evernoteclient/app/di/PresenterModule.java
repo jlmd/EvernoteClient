@@ -15,6 +15,8 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module which provides presenters
+ *
  * @author jlmd
  */
 @Module(

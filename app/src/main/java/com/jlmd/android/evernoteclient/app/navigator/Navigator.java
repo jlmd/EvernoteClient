@@ -12,6 +12,8 @@ import com.jlmd.android.evernoteclient.app.ui.noteslist.view.NotesListActivity;
 import com.jlmd.android.evernoteclient.domain.model.Note;
 
 /**
+ * The Navigator is used to control the activity flow navigation in the application
+ *
  * @author jlmd
  */
 public class Navigator {

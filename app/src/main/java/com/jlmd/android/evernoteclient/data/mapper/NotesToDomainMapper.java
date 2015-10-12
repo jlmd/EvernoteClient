@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Maps a list of sdk note to domain note
+ *
  * @author jlmd
  */
 public class NotesToDomainMapper

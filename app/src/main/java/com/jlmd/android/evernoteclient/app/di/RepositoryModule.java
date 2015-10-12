@@ -10,6 +10,8 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module which provides repositories
+ *
  * @author jlmd
  */
 @Module(
