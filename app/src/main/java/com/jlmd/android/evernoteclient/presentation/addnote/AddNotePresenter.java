@@ -41,9 +41,11 @@ public class AddNotePresenter extends Presenter<AddNoteActivity> {
   }
 
   public void onBitmapCreated(Bitmap bitmap) {
-    tessBaseAPI.setImage(bitmap);
-    String recognizedText = tessBaseAPI.getUTF8Text();
-    view.setTextOnFocusedElement(recognizedText);
+    if (tessBaseAPI != null) {
+      tessBaseAPI.setImage(bitmap);
+      String recognizedText = tessBaseAPI.getUTF8Text();
+      view.setTextOnFocusedElement(recognizedText);
+    }
   }
 
   private class AddNoteCallback implements AddNote.Callback {

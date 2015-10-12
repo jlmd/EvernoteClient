@@ -50,4 +50,5 @@ dependencies {
   compile 'com.evernote:android-sdk:2.0.0-RC3'
   compile 'com.android.support:design:23.0.1'
   compile project(':libraries:tess-two')
+  testCompile 'junit:junit:4.12'
 }

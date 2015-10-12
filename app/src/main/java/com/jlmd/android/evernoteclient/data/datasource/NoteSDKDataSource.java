@@ -18,7 +18,6 @@ public class NoteSDKDataSource implements NoteDataSource {
 
   private final EvernoteSession evernoteSession;
 
-
   public NoteSDKDataSource(EvernoteSession evernoteSession) {
     this.evernoteSession = evernoteSession;
   }
