@@ -8,6 +8,7 @@ import com.evernote.edam.error.EDAMUserException;
 import com.evernote.edam.notestore.NoteFilter;
 import com.evernote.edam.type.Note;
 import com.evernote.thrift.TException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +28,12 @@ public class NoteSDKDataSource implements NoteDataSource {
     EvernoteNoteStoreClient noteStoreClient =
         evernoteSession.getEvernoteClientFactory().getNoteStoreClient();
     try {
-      return noteStoreClient.findNotes(new NoteFilter(), 0, 100).getNotes();
+      List<Note> notes = noteStoreClient.findNotes(new NoteFilter(), 0, 1000).getNotes();
+      List<Note> notesWithContent = new ArrayList<>();
+      for (Note note : notes) {
+        notesWithContent.add(noteStoreClient.getNote(note.getGuid(), true, false, false, false));
+      }
+      return notesWithContent;
     } catch (EDAMUserException | EDAMSystemException | EDAMNotFoundException | TException e) {
       throw new RuntimeException("Unexpected error obtaining notes using Evernote SDK", e);
     }
