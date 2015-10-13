@@ -94,4 +94,9 @@ public class AddNoteActivity extends BaseActivity implements View {
     addNotePresenter.onSaveNoteClick(etTitle.getText().toString(), etAuthor.getText().toString(),
         etContent.getText().toString());
   }
+
+  @Override
+  public void onBackPressed() {
+    addNotePresenter.onBackPressed();
+  }
 }

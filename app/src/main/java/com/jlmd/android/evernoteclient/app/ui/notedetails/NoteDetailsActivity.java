@@ -64,4 +64,9 @@ public class NoteDetailsActivity extends BaseActivity implements View {
     tvCreatedDate.setText(new Date(note.getCreated()) + "");
     tvAuthor.setText(note.getAuthor());
   }
+
+  @Override
+  public void onBackPressed() {
+    noteDetailsPresenter.onBackPressed();
+  }
 }
