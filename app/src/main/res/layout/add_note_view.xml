@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        >
+
+      <ImageView
+          android:id="@+id/iv_save_note"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="right"
+          android:layout_marginRight="10dp"
+          android:src="@drawable/ic_save_white_24dp"/>
+
+      <ImageView
+          android:id="@+id/ic_draw_note"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="right"
+          android:layout_marginRight="10dp"
+          android:src="@drawable/ic_border_color_white_24dp"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+      <EditText
+          android:id="@+id/et_title"
+          android:layout_width="0dp"
+          android:layout_weight="20"
+          android:layout_height="match_parent"
+          android:hint="@string/add_note_title_hint"/>
+
+      <EditText
+          android:id="@+id/et_author"
+          android:layout_width="0dp"
+          android:layout_weight="8"
+          android:layout_height="match_parent"
+          android:hint="@string/add_note_author_hint"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:lines="10"
+        android:gravity="top|left"
+        android:hint="@string/add_note_content_hint"/>
+
+  </LinearLayout>
+
+  <ProgressBar
+      android:id="@+id/pb_loading"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:visibility="invisible"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="24dp"
+      />
+
+</RelativeLayout>

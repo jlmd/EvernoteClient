@@ -1,6 +1,27 @@
 <resources>
   <string name="app_name">EvernoteClient</string>
 
-  <string name="hello_world">Hello world!</string>
   <string name="action_settings">Settings</string>
+
+  <!-- Login -->
+  <string name="username_hint">Username</string>
+  <string name="password_hint">Password</string>
+  <string name="login_button">Login</string>
+  <string name="login_error">An error occurred obtained user credentials</string>
+
+  <!-- Add note -->
+  <string name="add_note_toolbar">Add note</string>
+  <string name="add_note_title_hint">Title</string>
+  <string name="add_note_author_hint">Author</string>
+  <string name="add_note_content_hint">Content</string>
+  <string name="add_note_unexpected_error">Unexpected error adding new note</string>
+  <string name="add_note_draw_text_ok">Ok</string>
+  <string name="add_note_draw_text_cancel">Cancel</string>
+
+
+  <!-- List notes -->
+  <string name="menu_item_sort_note_title">Sort by title</string>
+  <string name="menu_item_sort_note_date">Sort by date</string>
+  <string name="list_notes_unexpected_error">Unexpected error obtaining notes</string>
+
 </resources>

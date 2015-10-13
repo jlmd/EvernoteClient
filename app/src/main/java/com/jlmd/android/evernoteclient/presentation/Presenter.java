@@ -3,6 +3,8 @@ package com.jlmd.android.evernoteclient.presentation;
 import com.jlmd.android.evernoteclient.app.ui.View;
 
 /**
+ * Abstract presenter with activity lifecycle
+ *
  * @param <T> View
  * @author jlmd
  */
