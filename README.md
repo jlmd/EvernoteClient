@@ -18,12 +18,14 @@ Evernote uses OAuth 1.0 as authentication system ([https://dev.evernote.com/doc/
 
 On the first attempt, I did this login system by myself, it's pushed in [cloud-api-login](https://github.com/jlmd/EvernoteClient/tree/cloud-api-login) branch. But then, I noticed that I can't use the Evernote Cloude API because the documentation is not available, so I had to use the authentication system which is included in Evernote SDK for Android.
 
+![screenshot](./art/screenshot_login.png "Screenshot login")
+
 #### List notes
 Notes are obtained by [NoteStore.findNotes](https://dev.evernote.com/doc/reference/NoteStore.html#Fn_NoteStore_findNotes) method, then for each note there is a call to [NoteStore.getNote](https://dev.evernote.com/doc/reference/NoteStore.html#Fn_NoteStore_getNote) in order to obtain note contents.
 
 Notes are listed in a RecyclerView using a GridLayoutManager with 2 columns.
 
-//TODO ¿Screenshot?
+![screenshot](./art/screenshot_notelist.png "Screenshot note list")
 
 #### Sort notes
 List notes view has a option menu which provides the user the option of sort the notes using date or title. This sort algorithm is used implementing Comparator interface ([comparator implementations](https://github.com/jlmd/EvernoteClient/tree/develop/app/src/main/java/com/jlmd/android/evernoteclient/domain/comparator)) with Collection.sort method.
@@ -31,10 +33,12 @@ List notes view has a option menu which provides the user the option of sort the
 #### Note details
 When a note is tapped in list notes view, a new view is opened which shows more information about the note, like author and creation date.
 
-//TODO ¿Screenshot?
+![screenshot](./art/screenshot_notedetails.png "Screenshot note details")
 
 #### Add note
 There is an option to add new note where user can write title, content and author. Notes are added using [NoteStore.createNote](https://dev.evernote.com/doc/reference/NoteStore.html#Fn_NoteStore_createNote) method.
+
+![screenshot](./art/screenshot_addnote.png "Screenshot add note")
 
 #### Handwriting new note
 Also, new notes can be written by handwriting.
@@ -43,7 +47,7 @@ As draw panel I've developed a [custom dialog](https://github.com/jlmd/EvernoteC
 
 I've added Tesseract as OCR engine [https://code.google.com/p/tesseract-ocr/](https://code.google.com/p/tesseract-ocr/) with eng language by default. But **this language doesn't detect most handwriting letter**. I can train a handwriting language using [TrainingTesseract3](https://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3) but it isn't easy and takes time.
 
-// TODO ¿Screenshot?
+![screenshot](./art/screenshot_handwriting.png "Screenshot handwriting")
 
 ### What should be implemented
 - Instrumentation tests
@@ -52,3 +56,4 @@ I've added Tesseract as OCR engine [https://code.google.com/p/tesseract-ocr/](ht
 - More beautiful UI
 - Better error handling
 - ENML markup parser
+- Logout feature
