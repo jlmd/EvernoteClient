@@ -18,7 +18,6 @@ import javax.inject.Singleton;
 public final class EvernoteSDKModule {
 
   @Provides
-  @Singleton
   EvernoteSession.EvernoteService provideEvernoteService() {
     return EvernoteSession.EvernoteService.SANDBOX;
   }

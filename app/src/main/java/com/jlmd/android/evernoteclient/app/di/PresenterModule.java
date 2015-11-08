@@ -12,7 +12,6 @@ import com.jlmd.android.evernoteclient.presentation.notedetails.NoteDetailsPrese
 import com.jlmd.android.evernoteclient.presentation.noteslist.NotesListPresenter;
 import dagger.Module;
 import dagger.Provides;
-import javax.inject.Singleton;
 
 /**
  * Dagger module which provides presenters
@@ -25,31 +24,26 @@ import javax.inject.Singleton;
 public final class PresenterModule {
 
   @Provides
-  @Singleton
   LoginPresenter provideLoginPresenter(Navigator navigator) {
     return new LoginPresenter(navigator);
   }
 
   @Provides
-  @Singleton
   MainPresenter provideMainPresenter(Navigator navigator, EvernoteSession evernoteSession) {
     return new MainPresenter(navigator, evernoteSession);
   }
 
   @Provides
-  @Singleton
   NotesListPresenter provideNotesListPresenter(GetNotesList getNotesList, Navigator navigator) {
     return new NotesListPresenter(getNotesList, navigator);
   }
 
   @Provides
-  @Singleton
   NoteDetailsPresenter provideNoteDetailsPresenter(Navigator navigator) {
     return new NoteDetailsPresenter(navigator);
   }
 
   @Provides
-  @Singleton
   AddNotePresenter provideAddNotePresenter(AddNote addNote, Navigator navigator,
       TessBaseAPI tessBaseAPI) {
     return new AddNotePresenter(navigator, addNote, tessBaseAPI);

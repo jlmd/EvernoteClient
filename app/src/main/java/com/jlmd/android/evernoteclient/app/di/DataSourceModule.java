@@ -5,7 +5,6 @@ import com.jlmd.android.evernoteclient.data.datasource.NoteDataSource;
 import com.jlmd.android.evernoteclient.data.datasource.NoteSDKDataSource;
 import dagger.Module;
 import dagger.Provides;
-import javax.inject.Singleton;
 
 /**
  * Dagger module for data sources
@@ -18,7 +17,6 @@ import javax.inject.Singleton;
 public final class DataSourceModule {
 
   @Provides
-  @Singleton
   NoteDataSource provideNotesListDataSource(EvernoteSession evernoteSession) {
     return new NoteSDKDataSource(evernoteSession);
   }
